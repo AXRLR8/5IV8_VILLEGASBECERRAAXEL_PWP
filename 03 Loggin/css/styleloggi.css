@@ -1,0 +1,99 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(../image/fondo.jpg);
+    background-size: cover;
+    color: aqua;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.userlogin{
+    background-color: aliceblue;
+    width: 700px;
+    height: 40px;
+    border-radius: 10px solid rgb(155, 244, 16);
+    margin-top: 10%;
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-top: 5px;
+    color: blueviolet;
+}
+
+.userid h2{
+    font-family: 'Roboto';
+    float: left;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.userid input{
+    height: 25px;
+    width: 300px;
+    border: solid 2px #09c022;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+.userid{
+    padding-top: 20px;
+}
+.password h2{
+    font-family: 'Roboto';
+    float: left;
+    margin-left: 50px;
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.password input{
+    height: 25px;
+    width: 300px;
+    border: solid 2px #09c022;
+    border-radius: 10px;
+    margin-left: 42px;
+}
+.password{
+    padding-top: 20px;
+}
+
+.button{
+    margin-top: 20px;
+    display: inline-flex;
+}
+
+.button button{
+    border-radius: 15px;
+    width: 120px;
+    height: 35px;
+}
+
+.button p{
+    margin-top: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+
+}
+
+.button img{
+    float: left;
+}
+
+a{
+    margin-top: 20px;
+    float: left;
+    margin-left: 60px;
+    color: cornsilk;
+}
