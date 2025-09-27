@@ -44,7 +44,7 @@ body{
     width: 300px;
     border: solid 2px #09c022;
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 65px;
 }
 .userid{
     padding-top: 20px;
@@ -53,7 +53,7 @@ body{
     font-family: 'Roboto';
     float: left;
     margin-left: 50px;
-    margin-right: 5px;
+    margin-right: 48px;
     padding-left: 5px;
 }
 
@@ -62,7 +62,7 @@ body{
     width: 300px;
     border: solid 2px #09c022;
     border-radius: 10px;
-    margin-left: 42px;
+    margin-left: 0px;
 }
 .password{
     padding-top: 20px;
