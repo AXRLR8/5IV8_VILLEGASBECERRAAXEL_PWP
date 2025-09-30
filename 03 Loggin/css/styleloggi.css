@@ -97,3 +97,26 @@ a{
     margin-left: 60px;
     color: cornsilk;
 }
+
+.volver-inicio {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .volver-inicio a {
+    display: inline-block;
+    background-color: #09c022; 
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .volver-inicio a:hover {
+    background-color: blueviolet; 
+    color: #fff;
+  }
+  

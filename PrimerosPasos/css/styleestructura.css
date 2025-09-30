@@ -33,3 +33,27 @@ article, aside{
 nav, footer, section{
     background-color: rgb(255, 94, 0);
 }
+
+.volver-inicio {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .volver-inicio a {
+    display: inline-block;
+    background-color: #ff6600; 
+    color: #fff;
+    padding: 10px 20px;
+    border: 3px solid #ff88aa; 
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .volver-inicio a:hover {
+    background-color: #ff88aa; 
+    border-color: #ff6600;
+    color: #000; 
+  }
+  

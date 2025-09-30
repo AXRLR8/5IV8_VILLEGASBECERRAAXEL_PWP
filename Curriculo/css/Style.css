@@ -99,3 +99,25 @@
     margin-bottom: 8px;
     font-size: 14px;
   }
+
+  .volver-inicio {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .volver-inicio a {
+    display: inline-block;
+    background-color: #4c3da1; 
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .volver-inicio a:hover {
+    background-color: #0b0a4d; 
+    color: #f5f5f5;
+  }
+  
