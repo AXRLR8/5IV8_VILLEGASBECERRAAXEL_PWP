@@ -1,12 +1,12 @@
 * {
     padding: 0;
     margin: 0;
-    color: #FFF0C4;
+    color: #F6FF99; 
     text-align: center;
 }
 
 html, body {
-    background-color: #3E0703;
+    background-color: #A7E399; 
     font-family: 'Times New Roman', Times, serif;
     height: 100%;
     display: flex;
@@ -17,11 +17,9 @@ main {
     flex: 1;
 }
 
-
-
 nav, section, footer {
-    background-color: #8C1007;
-    border: 4px solid #8C1007;
+    background-color: #476EAE;
+    border: 4px solid #48B3AF; 
     margin: 1rem auto;
     border-radius: 10px;
     padding: 1rem;
@@ -29,7 +27,7 @@ nav, section, footer {
 }
 
 nav h1, section h2, footer h3 {
-    color: #FFF0C4;
+    color: #F6FF99;
     font-size: 1.5rem;
 }
 
@@ -37,28 +35,44 @@ table {
     border-collapse: collapse;
     width: 80%;
     margin: 1rem auto;
-    background-color: #3E0703;
-    color: #FFF0C4;
+    background-color: #48B3AF; 
+    color: #F6FF99;
 }
 
 th, td {
-    border: 2px solid #8C1007;
+    border: 2px solid #476EAE; 
     padding: 10px 20px;
     text-align: center;
 }
 
 a {
-    color: #FFF0C4;
+    color: #F6FF99;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-footer {
-    background-color: #8C1007;
-    border: 4px solid #8C1007;
-    border-radius: 10px;
-    padding: 1rem;
-    width: 80%;
-    margin: 0 auto 1rem auto;
-    color: #FFF0C4;
-    text-align: center;
-    font-size: 1.5rem;
+a:hover {
+    color: #476EAE;
+    background-color: #F6FF99;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+
+.figma-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #48B3AF; 
+    color: #F6FF99;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.figma-link:hover {
+    background-color: #F6FF99;
+    color: #476EAE;
+    transition: 0.3s;
 }
