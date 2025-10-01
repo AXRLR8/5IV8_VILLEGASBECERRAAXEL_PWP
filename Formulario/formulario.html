@@ -5,74 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo Formulario</title>
     <script src="js/validacion.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleform.css">
 </head>
 <body>
-    <p>Todos los formularios en la web, manejan metodos para el envio de las diferentes peticiones que realiza el
-        usuario. Considerando la arquitectura Cliente-servidor, el manejo de las peticiones se hace por medio del
-        protocolo HTTP y actualmente por HTTPS, cada peticion debe de ser atendida en un tiempo de respuesta conforme al
-        modelo TCP/IP. Los metodos principales de los formularios son:
-        <li>
-            <ol>GET: <h1>Este metodo se encarga de enviar la informacion del formulario por medio de la salida estadar
-                    (conocida como url), del navegador, esto propicia que puedan existir inyecciones de codigo
-                    realizando violaciones a la seguridad del sistema</h1>
-            </ol>
-            <ol>
-                POST: <h1>Este metodo se encarga de enviar la informacion para poder registar un cambio o un nuevo
-                    registrp dentro del sistea, enviandola igual por el metodo estandar; pero mediante un ocultamiento,
-                    esto significa que no es visible para el usuario. Lo que nos ofrece un mayor grado de seguridad en
-                    el manejo de informacion</h1>
-            </ol>
-        </li>
-    </p>
-    <br>
-    <p>En resumen los metodos son:
-        <li>
-            <ol>GET: Sirve para enviar y realizar operaciones de lectura o consulta</ol>
-            <ol>POST: Sirve para enviar informacion de un recurso al servidor, con el fin de registrarlo</ol>
-            <ul>DELETE: Sirve para eliminar un recurso especifico dentro del servidor obteniendo una respuesta de
-                actualizacion</ul>
-                <ul>
-                    PUT: Sirve para almacenar la informacion de un recurso particular y conectarse al servicio para realizar la actualizacvion
-                </ul>
-                <ul>
-                    HEAD: Sirve para regresar ael codigo de puesta de ciañqioer cabecera HTTP asociada a un recurso
-                </ul>
-        </li>
-    </p>
+    <div class="contenido">
+        <p>
+            Todos los formularios en la web utilizan métodos para el envío de las distintas peticiones que realiza el usuario.
+Dentro de la arquitectura cliente-servidor, estas peticiones se gestionan mediante el protocolo HTTP y, actualmente, con mayor seguridad, a través de HTTPS.
+Cada solicitud debe ser atendida en un tiempo de respuesta adecuado conforme al modelo TCP/IP.
+Los principales métodos empleados en los formularios son:
+        </p>
 
+        <ul class="explicacion">
+            <li><b>GET:</b> <span>Este método se encarga de enviar la información del formulario por medio de la URL...</span></li>
+            <li><b>POST:</b> <span>Este método se encarga de enviar la información para registrar un cambio...</span></li>
+            <li><b>DELETE:</b> <span>Sirve para eliminar un recurso específico dentro del servidor.</span></li>
+            <li><b>PUT:</b> <span>Sirve para almacenar la información de un recurso y actualizarlo.</span></li>
+            <li><b>HEAD:</b> <span>Sirve para regresar el código de cabecera HTTP asociado a un recurso.</span></li>
+        </ul>
 
-    <div
-    class="container-form">
-    <form method="post" id="formulario" name="formulario" onsubmit="return validar(this);" action="">
-       <br>
+        <div class="container-form">
+            <h2>Formulario de Registro</h2>
+            <form method="post" id="formulario" name="formulario" onsubmit="return validar(this);" action="">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre">
 
-        <label for="">Nombre:</label>
-<br>
-        <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre"> 
-        
-<br>
-        <label for="">Edad:</label>
-<br>    
-        <input type="number" id="edad" name="edad" required placeholder="Escribe tu edad">
-<br>
-    <label for="email">Email:</label>
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" required placeholder="Escribe tu edad">
 
-    <input type="email" id="correo" name="correo" required placeholder="Ingresa Aquí tu correo">
+                <label for="correo">Email:</label>
+                <input type="email" id="correo" name="correo" required placeholder="Ingresa tu correo">
+
+                <div class="botones">
+                    <input type="submit" value="Enviar Registro" name="Enviar">
+                    <input type="reset" value="Borrar Registro" name="Borrar">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container-boton">
+        <a href="../index.html" class="btn-regresar">Regresar al menú principal</a>
+    </div>
     
-<br>
-
-<input type="submit" value="Enviar Registro" name="Enviar">
-
-<br>
-
-<input type="reset" value="Borrar Registro" name="Borrar">
-
-
-
-
-
-
-</form>
-</div>
 </body>
 </html>

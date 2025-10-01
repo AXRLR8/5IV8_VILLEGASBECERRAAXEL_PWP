@@ -40,6 +40,22 @@ function validar(formulario) {
             break;
         }
     
-    if (!aliValido) { alert("Escriba unicamente letras en el campo nombre"); formulario.nombre.focus(); return false; }
+     }
+     if (!aliValido) { alert("Escriba unicamente letras en el campo nombre"); formulario.nombre.focus(); return false;
     }
+
+     if (!aliValido) { alert("Escriba unicamente digitos en el campo nombre"); formulario.edad.focus(); return false;
+
+    }
+
+    //vamos a crear una funcion de una expresion regular para validar el correo electronico
+    //texto.texto@texto.texto
+
+    var b = /^[^@\s]+[^@\.\s]+(\.[^@\.\s]+)+$/; 
+    var txt = formulario.correo.value;
+
+alert("Email" + (b.test(txt)? " " : " no válido") + ("valido"));
+
+return b.test;
+//agregar funcion para su nombre con espacios: Jaime Minor Gomez, y una edad con negativos, 23456789
 }
