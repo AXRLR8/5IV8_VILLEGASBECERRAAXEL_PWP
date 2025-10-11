@@ -76,6 +76,17 @@ function califfinal() {
 
     document.getElementById("califFinali").value = calificacionFinal.toFixed(2);
 }
+
+function calcularPorcentajes() {
+    var hombres = parseInt(document.getElementById("cantHombresi").value) || 0;
+    var mujeres = parseInt(document.getElementById("cantMujeresi").value) || 0;
+    var total = hombres + mujeres;
+    var porcHombres = (hombres / total) * 100;
+    var porcMujeres = (mujeres / total) * 100;
+    document.getElementById("porcHombresi").value = porcHombres.toFixed(2);
+ 
+    document.getElementById("porcMujeresi").value = porcMujeres.toFixed(2);
+}
 /*
 5 se debe de ingresar cantidad de hombre y cantidad de mujeres y mostrar sus porcentajes correspondientes
 6 calcular la edad de una persona
