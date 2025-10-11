@@ -8,12 +8,19 @@ function validarn(e){
 
 function interes(){
     var valor = document.getElementById("cantidadi").value;
+    var meses = document.getElementById("mesesi").value;
     var parseo = parseFloat(valor);
-    alert(parseo);
-    var interes = parseo * (0.085);//Limite a 2 decimales
-    alert(interes);
+    var numMeses = parseInt(meses);
+    if (numMeses > 18) {
+        alert("El numero de meses no puede ser mayor a 18");
+        document.getElementById("mesesi").value = 18;
+        numMeses = 18;
+    }
+
+    var tasaAnual = 0.085; // 8.5% anual
+    var tasaMensual = tasaAnual / 12; // Tasa mensual
+    var interes = parseo * tasaMensual * numMeses;
     var total = parseo + interes;
-    alert(total);
     document.getElementById("saldoi").value = "$ " + total;//Limite a 2 decimales
 }
 
@@ -21,6 +28,8 @@ function borrari(){
     document.getElementById("cantidadi").value = "";
     document.getElementById("saldoi").value = "";
 }
+
+
 /*
 Del ejercicio 1, tenemos que agregar el campo numero de meses y sera una inversion de meximo 18 meses
 
