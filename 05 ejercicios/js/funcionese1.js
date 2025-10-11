@@ -29,10 +29,21 @@ function borrari(){
     document.getElementById("saldoi").value = "";
 }
 
+function comision(){
+    var sueldobase = parseFloat(document.getElementById("sueldobasei").value || 0);
+    var venta1 = parseFloat(document.getElementById("ventai1").value || 0);
+    var venta2 = parseFloat(document.getElementById("ventai2").value || 0);
+    var venta3 = parseFloat(document.getElementById("ventai3").value || 0);
 
+    var totalVentas = venta1 + venta2 + venta3;
+    var comision = totalVentas * 0.10;
+    var totalPagar = sueldobase + comision;
+    
+
+    document.getElementById("comisioni").value = "$ " + comision.toFixed(2);
+    document.getElementById("totalpagar").value = "$ " + totalPagar.toFixed(2);
+}
 /*
-Del ejercicio 1, tenemos que agregar el campo numero de meses y sera una inversion de meximo 18 meses
-
 2 se deben de ingresar 3 ventas, un sueldo base, y despues calcular el monto total, debe aparecer cuanto cobra por comiion y la suma
 
 3 se debe ingresar un producto con su precio y aplicarle el 15% y el sistema debe mostrar el producto, el precio, el desceunto y el total a pagar
