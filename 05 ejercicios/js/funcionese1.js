@@ -57,14 +57,26 @@ function descuento(){
     document.getElementById("descuentoi").value = "$ " + descuentoCalculado.toFixed(2);
     document.getElementById("totalPagari").value = "$ " + totalPagar.toFixed(2);
 }
+
+function califfinal() {
+    var c1 = parseFloat(document.getElementById("calif1i").value) || 0;
+    var c2 = parseFloat(document.getElementById("calif2i").value) || 0;
+    var c3 = parseFloat(document.getElementById("calif3i").value) || 0;
+    var trabajo = parseFloat(document.getElementById("trabajoFinali").value) || 0;
+    var examen = parseFloat(document.getElementById("examenFinali").value) || 0;
+
+    var promedioParciales = (c1 + c2 + c3) / 3;
+    var ponderadoParciales = promedioParciales * 0.55;
+
+    var ponderadoTrabajo = trabajo * 0.30;
+
+    var ponderadoExamen = examen * 0.15;
+
+    var calificacionFinal = ponderadoParciales + ponderadoTrabajo + ponderadoExamen;
+
+    document.getElementById("califFinali").value = calificacionFinal.toFixed(2);
+}
 /*
-2 se deben de ingresar 3 ventas, un sueldo base, y despues calcular el monto total, debe aparecer cuanto cobra por comiion y la suma
-
-3 se debe ingresar un producto con su precio y aplicarle el 15% y el sistema debe mostrar el producto, el precio, el desceunto y el total a pagar
-
-4 se debe de ingresar calif 1, 2 y 3, se aplica el promedio y su porcentaje, se ingresa trabajo fianl y se aplica un porcentaje, y examen final se aplica el porcentaje y se debe mostrar la calif final
-
 5 se debe de ingresar cantidad de hombre y cantidad de mujeres y mostrar sus porcentajes correspondientes
-
 6 calcular la edad de una persona
 */
