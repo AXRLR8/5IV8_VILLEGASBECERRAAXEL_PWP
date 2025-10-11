@@ -38,10 +38,24 @@ function comision(){
     var totalVentas = venta1 + venta2 + venta3;
     var comision = totalVentas * 0.10;
     var totalPagar = sueldobase + comision;
-    
+
 
     document.getElementById("comisioni").value = "$ " + comision.toFixed(2);
     document.getElementById("totalpagar").value = "$ " + totalPagar.toFixed(2);
+}
+
+function descuento(){
+    var nombre = document.getElementById("nombrei").value;
+    var precio = parseFloat(document.getElementById("precioi").value) || 0;
+    
+    var precioParseado = precio; 
+    var descuentoCalculado = precioParseado * 0.15;
+    var totalPagar = precioParseado - descuentoCalculado;
+
+    document.getElementById("productoResultadoi").value = nombre;
+    document.getElementById("precioOriginalResultadoi").value = "$ " + precioParseado.toFixed(2);
+    document.getElementById("descuentoi").value = "$ " + descuentoCalculado.toFixed(2);
+    document.getElementById("totalPagari").value = "$ " + totalPagar.toFixed(2);
 }
 /*
 2 se deben de ingresar 3 ventas, un sueldo base, y despues calcular el monto total, debe aparecer cuanto cobra por comiion y la suma
