@@ -1,44 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 12</title>
 </head>
 <body>
+    
     <div class="container">
-        <form method="post" name="formulario" action="">
-            <label for="">Formulario para calculo de inverciones Banco Pro con un incremento
-                del 8.45% anual</label>
-            </label>
-            <br>
-            <div class="table">
+        <h2>1. Cálculo de Inversiones (8.45% Anual, Máx 18 Meses)</h2>
+        <form method="post" name="formulario1" action="">
+            <label>Formulario para cálculo de inversiones Banco Pro.</label>
+            <table>
                 <tr>
+                    <td>Cantidad a invertir ($):</td>
                     <td>
                         <input type="text" name="cantidad" id="cantidadi" onkeypress="return validarn(event)">
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>Número de meses (Máx 18):</td>
                     <td>
-                        <input type="button" value="Calcular Interes" name="enviar" onclick="interes()">
+                        <input type="number" name="meses" id="mesesi" min="1" max="18" required>
                     </td>
                 </tr>
                 <tr>
+                    <td></td>
                     <td>
-                        Su saldo total es de: 
+                        <input type="button" value="Calcular Interés" name="enviar1" onclick="interes()">
                     </td>
+                </tr>
+                <tr>
+                    <td>Su saldo total es de:</td>
                     <td>
                         <input type="text" name="sueldoi" id="saldoi" readonly="readonly" class="input_text">
                     </td>
                 </tr> 
                 <tr>
                     <td></td>
-                    <td><input type="button" value="Borrar Datos" name="borrar" onclick="borrari()"></td>
+                    <td><input type="button" value="Borrar Datos" name="borrar1" onclick="borrari()"></td>
                 </tr>
-            </div>
+            </table>
         </form>
     </div>
+    
+    <div class="container">
+        <h2>2. Sueldo y Comisiones (10% por venta)</h2>
+        <form method="post" name="formulario2" action="">
+            <table>
+                <tr><td>Sueldo Base ($):</td><td><input type="text" id="sueldoBasei" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Venta 1 ($):</td><td><input type="text" id="venta1i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Venta 2 ($):</td><td><input type="text" id="venta2i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Venta 3 ($):</td><td><input type="text" id="venta3i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td></td><td><input type="button" value="Calcular Sueldo" onclick="calcularComision()"></td></tr>
+                <tr><td>Monto por Comisión ($):</td><td><input type="text" id="montoComisioni" readonly></td></tr>
+                <tr><td>Sueldo Total ($):</td><td><input type="text" id="sueldoTotali" readonly></td></tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>3. Descuento de Producto (15%)</h2>
+        <form method="post" name="formulario3" action="">
+            <table>
+                <tr><td>Nombre del Producto:</td><td><input type="text" id="productoNombrei"></td></tr>
+                <tr><td>Precio del Producto ($):</td><td><input type="text" id="precioProductoi" onkeypress="return validarn(event)"></td></tr>
+                <tr><td></td><td><input type="button" value="Calcular Descuento" onclick="calcularDescuento()"></td></tr>
+                <tr><td>Producto:</td><td><input type="text" id="productoResultadoi" readonly></td></tr>
+                <tr><td>Precio Original ($):</td><td><input type="text" id="precioOriginalResultadoi" readonly></td></tr>
+                <tr><td>Descuento (15%) ($):</td><td><input type="text" id="descuentoi" readonly></td></tr>
+                <tr><td>Total a Pagar ($):</td><td><input type="text" id="totalPagari" readonly></td></tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>4. Calificación Final (55%, 30%, 15%)</h2>
+        <form method="post" name="formulario4" action="">
+            <table>
+                <tr><td>Calificación Parcial 1:</td><td><input type="text" id="calif1i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Calificación Parcial 2:</td><td><input type="text" id="calif2i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Calificación Parcial 3:</td><td><input type="text" id="calif3i" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Trabajo Final (30%):</td><td><input type="text" id="trabajoFinali" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Examen Final (15%):</td><td><input type="text" id="examenFinali" onkeypress="return validarn(event)"></td></tr>
+                <tr><td></td><td><input type="button" value="Calcular Calificación Final" onclick="calcularCalifFinal()"></td></tr>
+                <tr><td>Calificación Final:</td><td><input type="text" id="califFinali" readonly></td></tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>5. Porcentaje de Hombres y Mujeres</h2>
+        <form method="post" name="formulario5" action="">
+            <table>
+                <tr><td>Cantidad de Hombres:</td><td><input type="text" id="cantHombresi" onkeypress="return validarn(event)"></td></tr>
+                <tr><td>Cantidad de Mujeres:</td><td><input type="text" id="cantMujeresi" onkeypress="return validarn(event)"></td></tr>
+                <tr><td></td><td><input type="button" value="Calcular Porcentajes" onclick="calcularPorcentajes()"></td></tr>
+                <tr><td>Porcentaje de Hombres (%):</td><td><input type="text" id="porcHombresi" readonly></td></tr>
+                <tr><td>Porcentaje de Mujeres (%):</td><td><input type="text" id="porcMujeresi" readonly></td></tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>6. Calcular Edad</h2>
+        <form method="post" name="formulario6" action="">
+            <table>
+                <tr><td>Año de Nacimiento (YYYY):</td><td><input type="number" id="anioNacimientoi" min="1900" max="2025" required></td></tr>
+                <tr><td></td><td><input type="button" value="Calcular Edad" onclick="calcularEdad()"></td></tr>
+                <tr><td>Edad Actual:</td><td><input type="text" id="edadResultadoi" readonly></td></tr>
+            </table>
+        </form>
+    </div>
+
     <script src="./js/funcionese1.js"></script>
 </body>
 </html>
