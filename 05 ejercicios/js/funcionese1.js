@@ -87,7 +87,15 @@ function calcularPorcentajes() {
  
     document.getElementById("porcMujeresi").value = porcMujeres.toFixed(2);
 }
-/*
-5 se debe de ingresar cantidad de hombre y cantidad de mujeres y mostrar sus porcentajes correspondientes
-6 calcular la edad de una persona
-*/
+
+function calcularEdad() {
+    var anioNac = parseInt(document.getElementById("anioNacimientoi").value) || 0;
+    var anioActual = new Date().getFullYear();
+    if (anioNac > anioActual || anioNac < 1900) {
+        alert("Por favor, ingrese un año de nacimiento válido.");
+        document.getElementById("edadResultadoi").value = "";
+        return;
+    }
+    var edad = anioActual - anioNac;
+    document.getElementById("edadResultadoi").value = edad + " años";
+}
