@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #F6FF99;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #A7E399;
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background-color: #476EAE;
+    border: 4px solid #48B3AF;
+    margin: 1.5rem auto;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+}
+
+.container h2 {
+    color: #F6FF99;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #48B3AF;
+    padding-bottom: 0.5rem;
+}
+
+.container label {
+    display: block;
+    color: #F6FF99;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #48B3AF;
+    color: #F6FF99;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+td {
+    border: 1px solid #476EAE;
+    padding: 10px;
+    text-align: left;
+    color: #F6FF99;
+}
+
+input[type="text"], 
+input[type="number"] {
+    width: 95%;
+    padding: 6px 8px;
+    border: 1px solid #476EAE;
+    border-radius: 4px;
+    background-color: #D3F3C6;
+    color: #476EAE;
+    font-size: 1rem;
+    text-align: left;
+}
+
+input[readonly] {
+    background-color: #5BA8A5;
+    color: #F6FF99;
+    border: 1px solid #F6FF99;
+    font-weight: bold;
+}
+
+input[type="button"] {
+    background-color: #476EAE;
+    color: #F6FF99;
+    border: 2px solid #F6FF99;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    width: auto;
+    min-width: 120px;
+}
+
+input[type="button"]:hover {
+    background-color: #F6FF99;
+    color: #476EAE;
+}
