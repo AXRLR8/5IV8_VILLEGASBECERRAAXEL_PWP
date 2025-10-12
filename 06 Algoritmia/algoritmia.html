@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de Uso de Algoritmia</title>
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
             <div class="problema-content">
                 <input type="text" class="problema-input" placeholder="Ingrese las palabras separadas por un espacio: "
                     id="p1-input">
-                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="">Invertir
+                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="problema1()">Invertir
                     palabras</button>
                 <pre class="problema-output" id="p1-output">Esperando datos...</pre>
             </div>
@@ -81,7 +82,7 @@
                     </table>
 
                 </div>
-                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="">Calcular vector</button>
+                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="problema2()">Calcular vector</button>
                 <pre class="problema-output" id="p2-output">Esperando datos...</pre>
             </div>
         </div>
@@ -98,11 +99,15 @@
             <div class="problema-content">
                 <input type="text" class="problema-input" placeholder="Ingrese las palabras separadas por una coma: "
                     id="p3-input">
-                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="">Calcular palabras</button>
+                <button type="button" class="problema-button" style="margin-top: 1rem;" onclick="problema3()">Calcular palabras</button>
                 <pre class="problema-output" id="p3-output">Esperando datos...</pre>
             </div>
         </div>
     </div>
+    <div class="volver-inicio">
+        <a href="../index.html">Regresar al menú principal</a>
+      </div>
+      <script src="algoritmia.js"></script>
 </body>
 
 </html>

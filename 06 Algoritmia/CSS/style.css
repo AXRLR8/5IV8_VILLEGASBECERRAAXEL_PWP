@@ -25,7 +25,7 @@ html, body {
     max-width: 700px;
 }
 
-.container h2 {
+.problema-title {
     color: #F6FF99;
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -33,33 +33,21 @@ html, body {
     padding-bottom: 0.5rem;
 }
 
-.container label {
-    display: block;
+.problema-container h3 {
     color: #F6FF99;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: normal;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 1rem;
-    background-color: #48B3AF;
-    color: #F6FF99;
-    border-radius: 6px;
-    overflow: hidden;
+.problema-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-td {
-    border: 1px solid #476EAE;
-    padding: 10px;
-    text-align: left;
-    color: #F6FF99;
-}
-
-input[type="text"], 
-input[type="number"] {
+.problema-input {
     width: 95%;
     padding: 6px 8px;
     border: 1px solid #476EAE;
@@ -70,14 +58,20 @@ input[type="number"] {
     text-align: left;
 }
 
-input[readonly] {
+.problema-output {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #476EAE;
+    border-radius: 4px;
     background-color: #5BA8A5;
     color: #F6FF99;
-    border: 1px solid #F6FF99;
     font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+    white-space: pre-wrap;
 }
 
-input[type="button"] {
+.problema-button {
     background-color: #476EAE;
     color: #F6FF99;
     border: 2px solid #F6FF99;
@@ -85,14 +79,63 @@ input[type="button"] {
     padding: 8px 15px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px;
     width: auto;
     min-width: 120px;
 }
 
-input[type="button"]:hover {
+.problema-button:hover {
     background-color: #F6FF99;
     color: #476EAE;
+}
+
+.tablas {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.problema-table {
+    border-collapse: collapse;
+    width: 50%;
+    background-color: #48B3AF;
+    color: #F6FF99;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.problema-table thead {
+    display: none; 
+}
+
+.problema-table tbody tr {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.problema-table td {
+    border: none;
+    padding: 5px 2px;
+    text-align: center;
+    color: #F6FF99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    flex-grow: 1;
+    font-size: 0.9em;
+}
+
+.problema-table input[type="number"] {
+    width: 35px;
+    padding: 4px 2px;
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .volver-inicio {
@@ -108,9 +151,18 @@ input[type="button"]:hover {
     border: 2px solid #48B3AF;
 }
 
+.volver-inicio a {
+    color: #F6FF99;
+    text-decoration: none;
+}
+
 .volver-inicio:hover {
     background-color: #F6FF99;
     color: #476EAE;
     border: 2px solid #476EAE;
     transition: 0.3s;
+}
+
+.volver-inicio:hover a {
+    color: #476EAE;
 }
