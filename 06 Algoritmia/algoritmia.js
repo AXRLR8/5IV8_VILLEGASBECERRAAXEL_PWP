@@ -1,13 +1,10 @@
 function problema1(){
     const inputElement = document.getElementById('p1-input');
     const outputElement = document.getElementById('p1-output');
-    
     const texto = inputElement.value.trim();
-
     const palabras = texto.split(' ').filter(word => word.length > 0);
     const palabrasInvertidas = palabras.reverse();
     const resultado = palabrasInvertidas.join(' ');
-
     outputElement.textContent = resultado;
 }
 
@@ -25,32 +22,39 @@ function problema2(){
 }
 
 function problema2() {
-    const idsX = ['p2-x1', 'p2-x2', 'p2-x3', 'p2-x4', 'p2-x5'];
-    const idsY = ['p2-y1', 'p2-y2', 'p2-y3', 'p2-y4', 'p2-y5'];
-    const outputElement = document.getElementById('p2-output');
+     //jaime
+    //primero necesitamos los valores
+    var p2_x1 = document.querySelector("#p2_x1").value;
+    var p2_x2 = document.querySelector("#p2_x2").value;
+    var p2_x3 = document.querySelector("#p2_x3").value;
+    var p2_x4 = document.querySelector("#p2_x4").value;
+    var p2_x5 = document.querySelector("#p2_x5").value;
 
-    const obtenerVector = (ids) => {
-        const vector = [];
-        for (const id of ids) {
-            const value = document.getElementById(id).value;
-            const num = parseFloat(value);
-            vector.push(num);
-        }
-        return vector;
-    };
+    var p2_y1 = document.querySelector("#p2_y1").value;
+    var p2_y2 = document.querySelector("#p2_y2").value;
+    var p2_y3 = document.querySelector("#p2_y3").value;
+    var p2_y4 = document.querySelector("#p2_y4").value;
+    var p2_y5 = document.querySelector("#p2_y5").value;
 
-    const v1 = obtenerVector(idsX);
-    const v2 = obtenerVector(idsY);
+    //Creamos los vectores
+    var v1 = [p2_x1, p2_x2, p2_x3, p2_x4, p2_x5];
+    var v2 = [p2_y1, p2_y2, p2_y3, p2_y4, p2_y5];
 
-    v1.sort((a, b) => a - b); 
-    v2.sort((a, b) => b - a); 
+    //Creamos el vector resultado
+    v1 = v1.sort(function(a, b){return b-a});
+    v2 = v2.sort(function(a, b){return b-a});
 
-    let productoEscalarMinimo = 0;
-    for (let i = 0; i < v1.length; i++) {
-        productoEscalarMinimo += v1[i] * v2[i];
-    }
+    v2 = v2.reverse();
 
-    outputElement.textContent = `V1 ordenado (ascendente): (${v1.join(', ')})\nV2 ordenado (descendente): (${v2.join(', ')})\nProducto Escalar Mínimo: ${productoEscalarMinimo}`;
+    var p2_producto = 0;
+    
+    for(var i=0; i<v1.length; i ++){
+
+        p2_producto += v1[i] * v2[i];
+    }
+    document.querySelector("#p2_output").innerHTML = "El producto escalar minimo es: " + p2_producto;
+
+
 }
 
 function problema3(){
@@ -76,3 +80,4 @@ function problema3(){
 
     outputElement.textContent = `La palabra con más caracteres únicos es: ${palabraConMasCaracteresUnicos} (con ${maxCaracteresUnicos} caracteres únicos).`;
 }
+
