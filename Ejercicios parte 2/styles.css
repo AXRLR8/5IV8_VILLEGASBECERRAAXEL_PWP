@@ -114,3 +114,22 @@ button:hover {
     text-align: left;
     display: block;
 }
+.volver-inicio {
+    display: inline-block;
+    margin: 30px auto 40px auto;
+    padding: 10px 20px;
+    background-color: #48B3AF;
+    color: #F6FF99;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #48B3AF;
+}
+
+.volver-inicio:hover {
+    background-color: #F6FF99;
+    color: #476EAE;
+    border: 2px solid #476EAE;
+    transition: 0.3s;
+}
