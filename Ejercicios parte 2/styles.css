@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+    color: #F6FF99;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #A7E399;
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+h1 {
+    color: #476EAE;
+    font-size: 2.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 4px solid #48B3AF;
+    width: 90%;
+    max-width: 700px;
+    margin: 1.5rem auto 0;
+}
+
+.problema-container {
+    background-color: #476EAE;
+    border: 4px solid #48B3AF;
+    margin: 1.5rem auto;
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+}
+
+.problema-container h2 {
+    color: #F6FF99;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #48B3AF;
+    padding-bottom: 0.5rem;
+}
+
+.problema-container p {
+    color: #D3F3C6;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+label {
+    display: block;
+    color: #F6FF99;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: 95%;
+    padding: 6px 8px;
+    border: 1px solid #476EAE;
+    border-radius: 4px;
+    background-color: #D3F3C6;
+    color: #476EAE;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #48B3AF;
+    color: #F6FF99;
+    border: 2px solid #F6FF99;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    width: auto;
+    min-width: 150px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #F6FF99;
+    color: #476EAE;
+    border: 2px solid #476EAE;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #5BA8A5;
+    color: #F6FF99;
+    border: 1px solid #F6FF99;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+.resultado strong {
+    color: #F6FF99;
+}
+
+.validacion-error {
+    color: #ff6666;
+    font-size: 0.9em;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
