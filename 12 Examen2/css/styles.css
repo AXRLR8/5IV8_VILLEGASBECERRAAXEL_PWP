@@ -1,0 +1,167 @@
+
+:root{
+    --bg-1: #0b1c3a;
+    --bg-2: #000;
+    --accent-gold: #ffcc00;
+    --accent-blue: #00bfff;
+    --accent-orange: #ff7b00;
+    --accent-purple: #b600ff;
+    --white: #ffffff;
+    --card-bg: #1e1e1e;
+    --muted: rgba(255,255,255,0.06);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;padding:0}
+  body{
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: radial-gradient(circle at 20% 10%, var(--bg-1) 0%, var(--bg-2) 60%);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 10px;
+  }
+  
+
+  .container{
+    width:100%;
+    max-width:540px;
+    margin:0 auto;
+    text-align:center;
+    padding:18px;
+  }
+  
+
+  h1{
+    margin:0 0 18px 0;
+    font-size:1.8rem;
+    color:var(--accent-gold);
+    text-shadow:0 2px 6px rgba(0,0,0,0.6);
+  }
+  
+  .search-box{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:18px;
+  }
+  .search-box input{
+    flex:1;
+    min-width:0;
+    padding:10px 12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    font-size:1rem;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color:var(--white);
+    text-align:left;
+  }
+  .search-box button{
+    padding:10px 14px;
+    border-radius:10px;
+    border:none;
+    background:linear-gradient(90deg,#0077ff,#00d4ff);
+    color:var(--white);
+    cursor:pointer;
+    font-weight:600;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .search-box button:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,0.45); }
+  
+  /* Loading */
+  #loading{ margin:12px 0; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  #loading img{ width:64px; height:auto; }
+  
+  .hidden{ display:none !important; }
+  
+  .card{
+    background:var(--card-bg);
+    padding:18px;
+    border-radius:14px;
+    margin:18px auto;
+    max-width:360px;
+    transition:box-shadow .35s ease, border-color .35s ease, transform .25s ease;
+    border:4px solid transparent;
+    box-shadow:0 6px 24px rgba(0,0,0,0.5);
+  }
+  .card img{ width:140px; height:auto; display:block; margin:0 auto 10px auto; border-radius:8px; background:rgba(255,255,255,0.02); padding:6px; }
+  
+  .card h2{ margin:6px 0 10px 0; font-size:1.3rem; color:var(--accent-gold); }
+  .card p{ margin:6px 0; font-size:0.95rem; color:var(--white); }
+  .card p strong{ color:var(--white); font-weight:700; }
+  
+  .stats {
+    margin-top:12px;
+    background:var(--muted);
+    padding:10px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    color:var(--white);
+  }
+  
+  /* Error */
+  .error{ color:#ff6b6b; font-weight:700; margin-top:12px; }
+  
+  /* Rarity Styles + Animations */
+  
+  /* COMMON */
+  .card.common{
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 32px 0 rgba(0,191,255,0.12), inset 0 0 18px rgba(0,191,255,0.03);
+    animation: pulseCommon 3s infinite ease-in-out;
+  }
+  @keyframes pulseCommon{
+    0%{ box-shadow: 0 0 18px rgba(0,191,255,0.08); transform:translateY(0); }
+    50%{ box-shadow: 0 0 42px rgba(0,191,255,0.18); transform:translateY(-3px); }
+    100%{ box-shadow: 0 0 18px rgba(0,191,255,0.08); transform:translateY(0); }
+  }
+  
+  /* RARE */
+  .card.rare{
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 32px 0 rgba(230,126,34,0.12), inset 0 0 18px rgba(230,126,34,0.03);
+    animation: pulseRare 3s infinite ease-in-out;
+  }
+  @keyframes pulseRare{
+    0%{ box-shadow: 0 0 18px rgba(230,126,34,0.08); transform:translateY(0); }
+    50%{ box-shadow: 0 0 42px rgba(255,179,71,0.22); transform:translateY(-3px); }
+    100%{ box-shadow: 0 0 18px rgba(230,126,34,0.08); transform:translateY(0); }
+  }
+  
+  /* EPIC */
+  .card.epic{
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 36px 0 rgba(182,0,255,0.12), inset 0 0 20px rgba(182,0,255,0.03);
+    animation: pulseEpic 3s infinite ease-in-out;
+  }
+  @keyframes pulseEpic{
+    0%{ box-shadow: 0 0 18px rgba(182,0,255,0.08); transform:translateY(0); }
+    50%{ box-shadow: 0 0 48px rgba(155,89,182,0.26); transform:translateY(-3px); }
+    100%{ box-shadow: 0 0 18px rgba(182,0,255,0.08); transform:translateY(0); }
+  }
+  
+  /* LEGENDARY */
+  .card.legendary{
+    border:4px solid transparent;
+    border-image: linear-gradient(90deg,#2ecc71,#00bcd4,#9b59b6,#2ecc71) 1;
+    animation: legendaryGlow 4s linear infinite;
+    box-shadow: 0 0 40px rgba(155,89,182,0.12), inset 0 0 18px rgba(0,188,212,0.02);
+  }
+  @keyframes legendaryGlow{
+    0%{ filter: hue-rotate(0deg); transform:translateY(0); }
+    50%{ filter: hue-rotate(40deg); transform:translateY(-4px); }
+    100%{ filter: hue-rotate(0deg); transform:translateY(0); }
+  }
+  
+  @media (max-width:420px){
+    .container{ padding:12px; }
+    .card img{ width:110px; }
+    .search-box input{ font-size:0.95rem; }
+    h1{ font-size:1.4rem; }
+  }
+  
