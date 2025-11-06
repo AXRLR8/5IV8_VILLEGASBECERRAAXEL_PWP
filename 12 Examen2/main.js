@@ -1,11 +1,10 @@
-// main.js - usa el proxy local en /api/cards
 const API_URL = "http://localhost:3000/api/cards";
 
 const searchBtn = document.getElementById("searchBtn");
 const cardNameInput = document.getElementById("cardName");
 const loading = document.getElementById("loading");
 const cardContainer = document.getElementById("cardContainer");
-const errorMsg = document.getElementById("errorMsg");
+const cardError = document.getElementById("cardError");
 
 const cardImage = document.getElementById("cardImage");
 const cardTitle = document.getElementById("cardTitle");
@@ -16,40 +15,73 @@ const cardMaxLevel = document.getElementById("cardMaxLevel");
 function showLoading() {
   loading.classList.remove("hidden");
   cardContainer.classList.add("hidden");
-  errorMsg.classList.add("hidden");
+  cardError.classList.add("hidden");
 }
+
 function hideLoading() {
   loading.classList.add("hidden");
 }
-function showError(text = "No se encontró la carta. Intenta otro nombre.") {
-  errorMsg.textContent = `${text}`;
-  errorMsg.classList.remove("hidden");
-  cardContainer.classList.add("hidden");
+
+function showCard(card) {
+  hideLoading();
+  cardError.classList.add("hidden");
+
+  const img = card.iconUrls?.medium || card.icon?.medium || "";
+  cardImage.src = img;
+  cardTitle.textContent = card.name || "—";
+  cardRarity.textContent = card.rarity || "—";
+  cardElixir.textContent = card.elixirCost ?? card.elixir ?? "—";
+  cardMaxLevel.textContent = card.maxLevel ?? "—";
+
+  clearRarityClasses();
+  applyRarityClass(card.rarity);
+
+  cardContainer.classList.remove("hidden");
 }
+
+function showError() {
+  hideLoading();
+  cardContainer.classList.add("hidden");
+  cardError.classList.remove("hidden");
+}
+
 function clearRarityClasses() {
   cardContainer.classList.remove("common", "rare", "epic", "legendary");
+  cardImage.classList.remove("common", "rare", "epic", "legendary");
 }
+
 function applyRarityClass(rarity) {
   if (!rarity) return;
   const r = rarity.toLowerCase();
-  if (r.includes("common")) cardContainer.classList.add("common");
-  else if (r.includes("rare")) cardContainer.classList.add("rare");
-  else if (r.includes("epic")) cardContainer.classList.add("epic");
-  else if (r.includes("legendary")) cardContainer.classList.add("legendary");
-  else cardContainer.classList.add("common");
+  if (r.includes("common")) {
+    cardContainer.classList.add("common");
+    cardImage.classList.add("common");
+  } else if (r.includes("rare")) {
+    cardContainer.classList.add("rare");
+    cardImage.classList.add("rare");
+  } else if (r.includes("epic")) {
+    cardContainer.classList.add("epic");
+    cardImage.classList.add("epic");
+  } else if (r.includes("legendary")) {
+    cardContainer.classList.add("legendary");
+    cardImage.classList.add("legendary");
+  } else {
+    cardContainer.classList.add("common");
+    cardImage.classList.add("common");
+  }
 }
+
 function normalize(s = "") {
   return s
     .toString()
-    .normalize("NFD")               // separa acentos
-    .replace(/[\u0300-\u036f]/g, "")// quita acentos
-    .replace(/[^a-z0-9]/gi, "")     // quita espacios y símbolos
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/gi, "")
     .toLowerCase();
 }
 
 async function buscarCarta() {
-  const raw = cardNameInput.value || "";
-  const q = raw.trim();
+  const q = cardNameInput.value.trim();
   if (!q) return alert("Escribe el nombre de la carta (ej. princess)");
 
   showLoading();
@@ -57,55 +89,31 @@ async function buscarCarta() {
   try {
     const res = await fetch(API_URL);
     if (!res.ok) {
-      const txt = await res.text();
-      hideLoading();
-      showError(`Error del servidor: ${res.status} ${txt}`);
+      showError();
       return;
     }
 
     const data = await res.json();
-    const items = Array.isArray(data) ? data : (data.items || []);
+    const items = Array.isArray(data) ? data : data.items || [];
     if (!items.length) {
-      hideLoading();
-      showError("La lista de cartas está vacía o el proxy no devolvió datos.");
+      showError();
       return;
     }
 
     const qNorm = normalize(q);
-    let card = items.find(c => normalize(c.name) === qNorm);
-    if (!card) {
-      card = items.find(c => normalize(c.name).includes(qNorm));
-    }
-    if (!card) {
-      // prueba un match por startsWith
-      card = items.find(c => normalize(c.name).startsWith(qNorm));
-    }
-
-    hideLoading();
+    let card = items.find((c) => normalize(c.name) === qNorm)
+      || items.find((c) => normalize(c.name).includes(qNorm))
+      || items.find((c) => normalize(c.name).startsWith(qNorm));
 
     if (!card) {
-      showError("Carta no encontrada.");
+      showError();
       return;
     }
 
-    // Mostrar solo campos que la API SI entrega
-    const img = card.iconUrls?.medium || card.icon?.medium || "";
-    cardImage.src = img;
-    cardTitle.textContent = card.name || "—";
-    cardRarity.textContent = card.rarity || "—";
-    cardElixir.textContent = card.elixirCost ?? card.elixir ?? "—";
-    cardMaxLevel.textContent = card.maxLevel ?? "—";
-
-    // aplicar rareza (clases para CSS)
-    clearRarityClasses();
-    applyRarityClass(card.rarity);
-
-    cardContainer.classList.remove("hidden");
-    errorMsg.classList.add("hidden");
+    showCard(card);
   } catch (err) {
     console.error("Error fetching cards:", err);
-    hideLoading();
-    showError("Error en la conexión al servidor. Revisa que el proxy esté corriendo.");
+    showError();
   }
 }
 

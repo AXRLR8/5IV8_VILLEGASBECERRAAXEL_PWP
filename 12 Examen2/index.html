@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Buscador de Cartas - Clash Royale</title>
@@ -8,7 +9,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Buscador de Cartas de Clash Royale</h1>
+    <h1>Buscador de Cartas Clash Royale</h1>
 
     <div class="search-box">
       <input type="text" id="cardName" placeholder="Ingresa el nombre de la carta (ej. princess)" />
@@ -16,21 +17,24 @@
     </div>
 
     <div id="loading" class="hidden">
-      <img src="https://i.gifer.com/ZZ5H.gif" alt="Cargando..." />
+      <img src="./img/loading.gif" alt="Cargando..." />
       <p>Buscando carta...</p>
     </div>
 
     <div id="cardContainer" class="hidden card">
       <img id="cardImage" alt="Imagen de la carta" />
       <h2 id="cardTitle"></h2>
-
       <p><strong>Rareza:</strong> <span id="cardRarity"></span></p>
       <p><strong>Elixir:</strong> <span id="cardElixir"></span></p>
       <p><strong>Nivel Máximo:</strong> <span id="cardMaxLevel"></span></p>
     </div>
 
-    <div id="errorMsg" class="hidden error">
-      No se encontró la carta. Intenta con otro nombre.
+    <div id="cardError" class="hidden error">
+      <div class="errorBox">
+        <img src="./img/error.gif" alt="No encontrada" />
+        <p>ERROR 404</p>
+        <p>No se encontró la carta. Intenta con otro nombre.</p>
+      </div>
     </div>
   </div>
 
