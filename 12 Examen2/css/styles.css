@@ -270,4 +270,35 @@
     -2px  2px 0 #000,
      2px  2px 0 #000;
   }
-  
+/* Caja del botón de volver */
+.volver-inicio {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(30,30,30,0.85);
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 540px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Texto del botón */
+.volver-inicio a {
+  font-family: 'Bangers', sans-serif;
+  font-size: 1.3rem;
+  color: #F6FF99;
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+}
+
+/* Hover */
+.volver-inicio:hover {
+  background-color: #F6FF99;
+  transition: 0.3s;
+}
+
+.volver-inicio:hover a {
+  color: #000;
+}
