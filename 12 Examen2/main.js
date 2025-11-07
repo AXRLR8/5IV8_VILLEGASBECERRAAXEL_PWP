@@ -1,5 +1,3 @@
-const API_URL = "http://localhost:3000/api/cards";
-
 const searchBtn = document.getElementById("searchBtn");
 const cardNameInput = document.getElementById("cardName");
 const loading = document.getElementById("loading");
@@ -72,8 +70,7 @@ function applyRarityClass(rarity) {
 }
 
 function normalize(s = "") {
-  return s
-    .toString()
+  return s.toString()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]/gi, "")
@@ -87,23 +84,19 @@ async function buscarCarta() {
   showLoading();
 
   try {
-    const res = await fetch(API_URL);
+    const res = await fetch("http://localhost:3000/api/cards");
     if (!res.ok) {
+      console.error("Error del servidor:", res.status);
       showError();
       return;
     }
 
-    const data = await res.json();
-    const items = Array.isArray(data) ? data : data.items || [];
-    if (!items.length) {
-      showError();
-      return;
-    }
-
+    const items = await res.json();
     const qNorm = normalize(q);
-    let card = items.find((c) => normalize(c.name) === qNorm)
-      || items.find((c) => normalize(c.name).includes(qNorm))
-      || items.find((c) => normalize(c.name).startsWith(qNorm));
+
+    let card = items.find(c => normalize(c.name) === qNorm)
+            || items.find(c => normalize(c.name).includes(qNorm))
+            || items.find(c => normalize(c.name).startsWith(qNorm));
 
     if (!card) {
       showError();

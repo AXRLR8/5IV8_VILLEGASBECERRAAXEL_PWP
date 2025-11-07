@@ -15,42 +15,33 @@ const BASE_URL = "https://api.clashroyale.com/v1";
 app.get("/api/cards", async (req, res) => {
   try {
     const response = await fetch(`${BASE_URL}/cards`, {
-      headers: {
-        Authorization: `Bearer ${process.env.TOKEN}`,
-      },
+      headers: { Authorization: `Bearer ${process.env.TOKEN}` },
     });
-
     const data = await response.json();
-    res.json(data); 
+    const items = data.items || data.cards || [];
+    res.json(items);
   } catch (error) {
     console.error("Error al obtener las cartas:", error);
     res.status(500).json({ message: "Error en el servidor" });
   }
 });
 
-app.get("/card/:name", async (req, res) => {
-  const { name } = req.params;
-
+app.get("/api/cards", async (req, res) => {
   try {
     const response = await fetch(`${BASE_URL}/cards`, {
       headers: {
         Authorization: `Bearer ${process.env.TOKEN}`,
       },
     });
+    
 
     const data = await response.json();
 
-    const card = data.items.find(
-      (c) => c.name.toLowerCase() === name.toLowerCase()
-    );
-
-    if (!card) {
-      return res.status(404).json({ message: "Carta no encontrada" });
-    }
-
-    res.json(card);
+    // Siempre devolver array de cartas
+    const cards = data.items || data;
+    res.json(cards);
   } catch (error) {
-    console.error("Error al buscar la carta:", error);
+    console.error("Error al obtener las cartas:", error);
     res.status(500).json({ message: "Error en el servidor" });
   }
 });
