@@ -1,0 +1,19 @@
+.volver-inicio a {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.3rem;
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 8px 0;
+  }
+  
+  /* Hover */
+  .volver-inicio:hover {
+    background-color: #F6FF99;
+    transition: 0.3s;
+  }
+  
+  .volver-inicio:hover a {
+    color: #000;
+  }
+  
