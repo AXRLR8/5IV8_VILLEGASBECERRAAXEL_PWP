@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora de Inspección</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Registro y Bitácora de Inspección</h1>
+
+    <h2>Nuevo Registro</h2>
+    <form action="/bitacora" method="POST">
+        <label for="fecha_hora_ronda">Fecha y Hora de Ronda:</label>
+        <input type="datetime-local" id="fecha_hora_ronda" name="fecha_hora_ronda" required>
+
+        <label for="area_sector">Área/Sector:</label>
+        <input type="text" id="area_sector" name="area_sector" required>
+
+        <label for="punto_control">Punto de Control:</label>
+        <input type="text" id="punto_control" name="punto_control" required>
+        
+        <label for="estado">Estado (Conforme/No Conforme):</label>
+        <select id="estado" name="estado" required>
+            <option value="Conforme">Conforme</option>
+            <option value="No Conforme">No Conforme</option>
+        </select>
+
+        <label for="observaciones">Observaciones Iniciales:</label>
+        <textarea id="observaciones" name="observaciones" rows="3" required></textarea>
+
+        <label for="seguimiento_requerido">Seguimiento Requerido:</label>
+        <select id="seguimiento_requerido" name="seguimiento_requerido" required>
+            <option value="No">No</option>
+            <option value="Sí">Sí</option>
+        </select>
+        
+        <label for="inspector">Inspector:</label>
+        <input type="text" id="inspector" name="inspector" required>
+
+        <button type="submit">Guardar Registro</button>
+    </form>
+
+    <hr>
+
+    <h2>Bitácora Completa</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha/Hora</th>
+                <th>Área/Sector</th>
+                <th>Punto de Control</th>
+                <th>Estado</th>
+                <th>Observaciones</th>
+                <th>Seguimiento Requerido</th>
+                <th>Inspector</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% registros.forEach(registro => { %>
+                <tr>
+                    <td><%= registro.id %></td>
+                    <td><%= new Date(registro.fecha_hora_ronda).toLocaleString() %></td>
+                    <td><%= registro.area_sector %></td>
+                    <td><%= registro.punto_control %></td>
+                    <td><%= registro.estado %></td>
+                    <td><%= registro.observaciones %></td>
+                    <td><%= registro.seguimiento_requerido %></td>
+                    <td><%= registro.inspector %></td>
+                    <td>
+                        <a href="/bitacora/seguimiento/<%= registro.id %>">Seguimiento</a>
+                        <a href="/bitacora/delete/<%= registro.id %>" onclick="return confirm('¿Estás seguro de eliminar este registro?');">Eliminar</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
