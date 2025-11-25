@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seguimiento de Bitácora #<%= registro.id %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    <% if (errorMsg) { %>
+    <script>
+        // Muestra el mensaje de error del servidor en un alert
+        window.onload = function() {
+            // Decodifica el mensaje que viene en la URL
+            const decodedMsg = decodeURIComponent('<%= errorMsg %>').replace(/ \| /g, '\n');
+            alert(decodedMsg);
+        };
+    </script>
+    <% } %>
 </head>
 <body>
     <h1>Seguimiento de Bitácora #<%= registro.id %></h1>
@@ -16,19 +26,19 @@
         <label>Fecha y Hora:</label>
         <input type="text" value="<%= new Date(registro.fecha_hora_ronda).toLocaleString() %>" disabled>
         
-        <label>Área/Sector:</label>
+        <label>Área/Sector (Max 20):</label>
         <input type="text" value="<%= registro.area_sector %>" disabled>
         
-        <label>Punto de Control:</label>
+        <label>Punto de Control (Max 20):</label>
         <input type="text" value="<%= registro.punto_control %>" disabled>
         
         <label>Estado Inicial:</label>
         <input type="text" value="<%= registro.estado %>" disabled>
         
-        <label>Inspector Original:</label>
+        <label>Inspector Original (Max 20):</label>
         <input type="text" value="<%= registro.inspector %>" disabled>
         
-        <input type="hidden" name="fecha_hora_ronda" value="<%= registro.fecha_hora_ronda.toISOString() %>">
+        <input type="hidden" name="fecha_hora_ronda" value="<%= new Date(registro.fecha_hora_ronda).toISOString().slice(0, 16) %>">
         <input type="hidden" name="area_sector" value="<%= registro.area_sector %>">
         <input type="hidden" name="punto_control" value="<%= registro.punto_control %>">
         <input type="hidden" name="estado" value="<%= registro.estado %>">
@@ -37,8 +47,8 @@
 
         <h2>Acción y Estado de Seguimiento</h2>
 
-        <label for="observaciones">Observaciones (Revisión y comentarios de seguimiento): </label>
-        <textarea id="observaciones" name="observaciones" rows="5"><%= registro.observaciones %></textarea>
+        <label for="observaciones">Observaciones (Revisión y comentarios de seguimiento) (Max 400): </label>
+        <textarea id="observaciones" name="observaciones" rows="5" maxlength="400" required><%= registro.observaciones %></textarea>
         
         <label for="seguimiento_requerido">Estado de Seguimiento (Actualizar): </label>
         <select id="seguimiento_requerido" name="seguimiento_requerido" required>
