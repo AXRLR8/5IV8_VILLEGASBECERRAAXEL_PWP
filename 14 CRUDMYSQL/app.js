@@ -40,8 +40,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 //donde se encuentra el directorio de dichas vistas
 app.set('views', __dirname + '/views');
-
-// ✅ CORRECCIÓN CLAVE: Ahora el servidor sabe que la carpeta 'css' 
+ 
 // debe servirse bajo la ruta pública '/css'
 app.use('/css', express.static(path.join(__dirname, 'css')));
 
